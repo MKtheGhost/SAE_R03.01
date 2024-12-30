@@ -1,3 +1,92 @@
+
 body{
-    background-color:#436957;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.login-container{
+    background-color: #436957;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup{
+   
+    text-align: center;
+    background-color: white;
+    padding: 20px 20px;
+    margin: 15% 35%;
+    border-radius: 32px;
+    font-family: "Montserrat", serif;
+    font-weight: bold;
+    height: 350px;
+}
+
+.yellow-btn {
+    padding: 10px 20px;
+    background-color: #EED391;
+    border-radius: 30px;
+    text-align: center;
+    border: 0px solid black;
+    font-family: "Montserrat", serif;
+    font-weight: bold;
+    margin: 10px;
+    transition: 0.2s ease;
+}
+
+.yellow-btn:hover {
+    color: white;
+    transition: 0.2s ease;
+    padding: 12px 24px;
+}
+
+.green-btn:hover {
+    color: white;
+    transition: 0.2s ease;
+    padding: 12px 24px;
+}
+
+.green-btn{
+    background-color: #436957;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-align: center;
+    border: 0px solid black;
+    font-family: "Montserrat", serif;
+    font-weight: bold;
+    margin: 10px;
+    transition: 0.2s ease;
+}
+
+.return-btn{
+    margin: 20px;
+    color: black;
+    transition: 0s ease;
+}
+
+.return-btn:hover{
+    transition: 0.2s ease;
+    padding: 10px 20px;
+}
+
+.signup-choice{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px;
+}
+
+.user-btn{
+    margin-top: 20px;
+}
+
+.popup-header{
+    font-size: 24px;
 }
