@@ -17,12 +17,12 @@
             <p class="popup-header form-header">Log in :</p>
             <img src="./../../images/logo.png" alt="users" width="40%">
             <div class="form">
-                <form action="" method="post">
+                <form action="login.js" method="post">
                     <label for="email">email</label>
                     <input type="email" name="email">
                     <label for="password">password</label>
                     <input type="password" name="password">
-                    <button class="yellow-btn still-btn">Login</button>
+                    <button class="yellow-btn still-btn" type="submit">Login</button>
                     <a href="./../signup/signupChoice.php">> Je n'ai pas de compte <</a>
                 </form>
             </div>

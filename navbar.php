@@ -11,9 +11,9 @@ echo <<< HTML
         <ul>
           <a href="./index.php"><img id="logo-elipse" src="./images/logoElipse.png" alt="logo"></a>
           <div id="guest-menu">
-            <li><a class="navlink" href="./index.php">annuaire</a></li>
-            <li>actualités</li>
-            <li>stats</li>
+            <li><a class="navlink" href="./pages/annuaire/annuaire.php">annuaire</a></li>
+            <li><a class="navlink" href="./pages/news/news.php"></a>actualités</li>
+            <li><a class="navlink" href="./pages/stats/statistics.php"></a>stats</li>
           </div>
           <div id="login-menu">
             <li><a class="navlink" href="./pages/login/loginChoice.php"><button class="green-btn still-btn index-btn">se connecter</button></a></li>
@@ -25,6 +25,10 @@ echo <<< HTML
       <style>
         a{
           text-decoration : none;
+        }
+
+        .navlink{
+          color : white;
         }
 
          .navlink:visited{

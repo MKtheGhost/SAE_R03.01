@@ -16,7 +16,7 @@
             <p class="popup-header form-header">Sign up :</p>
             <img src="./../../images/logo.png" alt="users" width="40%">
             <div class="form">
-                <form action="">
+                <form action="signup.js" method="post">
                     <label for="name">name :</label>
                     <input type="text" name="name">
                     <label for="surname">surname :</label>
@@ -27,7 +27,7 @@
                     <input type="password" name="password_confirmation">
                     <label for="admin_key">admin key :</label>
                     <input type="text" name="admin_key">
-                    <button class="yellow-btn still-btn">signup</button>
+                    <button class="yellow-btn still-btn" type="submit">signup</button>
                     <a href="./../login/loginChoice.php">> J'ai un compte <</a>
                 </form>
             </div>

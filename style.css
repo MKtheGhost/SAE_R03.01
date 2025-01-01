@@ -9,6 +9,15 @@ a{
     color: black;
 }
 
+.navlink:visited{
+    color : white;
+    text-decoration: none;
+  }
+
+  .navlink:hover{
+    color : black;
+  }
+
 .login-container{
     background-color: #436957;
     align-items: center;
@@ -90,3 +99,49 @@ a{
 .popup-header{
     font-size: 24px;
 }
+
+  #navbar{
+    margin : auto;
+    display : inline-block;
+    padding: 0;
+    display : flex;
+    justify-content : center;
+  }
+  ul{
+    list-style-type: none;
+  }
+
+  #guest-menu{
+    margin : 20px 100px 20px 50px;
+    background-color: #436957;
+    overflow: hidden; 
+    border-radius : 36px;
+    width : 500px;
+    float :left;
+    display : flex;
+    justify-content : center;
+  }
+
+  #login-menu{
+    float : left;
+    margin : 0 50px;
+  }
+
+  li{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .index-btn{
+    margin : 10px 0;
+  }
+
+  #logo-elipse{
+    margin : 10px 0 20px 30px;
+    float : left;
+    width : 55px;
+  }
