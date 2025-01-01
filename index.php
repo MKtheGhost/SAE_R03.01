@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+<?php include "./header.php" ?>
+
+    <title>Accueil</title>
 </head>
+
 <body>
     <div class="page-container">
         <?php
@@ -38,4 +39,17 @@
     </div>
 
 </body>
+<style>
+    body{
+        margin : 0;
+        padding : 0;
+    }
+    .page-container{
+        background-color: #E6DDCC;
+        margin : 0;
+        padding : 0;
+        font-family: "Montserrat", serif;
+        font-weight: bold;
+    }
+</style>
 </html>
