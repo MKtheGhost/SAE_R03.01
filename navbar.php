@@ -4,20 +4,75 @@
 // - make links dynamically linked to the pages so it can be used in all repo
 // - make some pages appear dynamically according to the user's grade
 
+$loginMenu = ["loginChoice", "loginAdmin", "loginUser", "signupChoice", "signupAdmin", "signupUser"];
 
+//PERMISSIONS
+if (!isset($_SESSION["grade"])) {
+  $pages = $authorizedurls["guest"];
+}
+ elseif ($_SESSION["grade"] == "admin") {
+  $pages = $authorizedurls["admin"];
+}
+ elseif ($_SESSION["grade"] == "user") {
+  $pages = $authorizedurls["user"];
+}
+
+//get the name of the current directory
+$path = dirname(__FILE__);
+$pieces = explode("\\", $path);
+$directoryName = $pieces[count($pieces) - 1];
+
+//set the navigation path according to the current directory ( 2 cases only here)
+if ($directoryName == "SAE_R03.01") {
+  $navigationPath = "./pages/";
+  $adminpath = "./admin/";
+  $rootdirectoryPath = "./";
+} elseif ($directoryName == "pages") {
+  $navigationPath = "./";
+  $adminpath = "./../../admin/";
+  $rootdirectoryPath = "./../../"
+}
+
+//define the url for each pages 
+$urls = [];
+for ($i = 0; $i < count($pages); $i++) {
+  $urls[$pages[$i]] = $navigationPath.$pageurls[$pages[$i]];
+}
+
+//printing out the first part of the navbar
 echo <<< HTML
 
       <div id="navbar">
         <ul>
           <a href="./index.php"><img id="logo-elipse" src="./images/logoElipse.png" alt="logo"></a>
           <div id="guest-menu">
-            <li><a class="navlink" href="./pages/annuaire/annuaire.php">annuaire</a></li>
-            <li><a class="navlink" href="./pages/news/news.php"></a>actualités</li>
-            <li><a class="navlink" href="./pages/stats/statistics.php"></a>stats</li>
+HTML;
+
+//for guestmenu, print links if not a login link
+foreach ($urls as $key => $url) {
+  if (!in_array( $key, $loginMenu)) {
+    echo '<li><a class="navlink" href="'.$url.'">'.$key.'</a></li>';
+  }
+}
+
+// print container for login menu
+echo <<< HTML
           </div>
           <div id="login-menu">
-            <li><a class="navlink" href="./pages/login/loginChoice.php"><button class="green-btn still-btn index-btn">se connecter</button></a></li>
-            <li><a class="navlink" href="./pages/signup/signupChoice.php"><button class="yellow-btn still-btn index-btn">s'inscrire</button></a></li>
+HTML;
+
+// print login links if grade is guest, else print user logo
+if (in_array("loginChoice", $pages)) {
+  echo ' <li><a class="navlink" href="'.$urls["loginChoice"].'"><button class="green-btn still-btn index-btn">se connecter</button></a></li>
+            <li><a class="navlink" href="'.$urls["signupChoice"].'"><button class="yellow-btn still-btn index-btn">s\'inscrire</button></a></li>';
+} else {
+  echo '<form action="'.$adminpath.'sessionLogout.php">';
+  echo '<button class="yellow-btn still-btn" style="margin: 5px 70px 0 165px">Log out</button>';
+  echo '</form>';
+
+}
+
+echo <<< HTML
           </div>
         </ul>
       </div>
@@ -25,6 +80,8 @@ echo <<< HTML
       <style>
         a{
           text-decoration : none;
+          font-family: "Montserrat", serif;
+          font-weight: bold;
         }
 
         .navlink{
@@ -65,6 +122,7 @@ echo <<< HTML
         #login-menu{
           float : left;
           margin : 0 50px;
+          margin-left : 100px;
         }
 
         li{

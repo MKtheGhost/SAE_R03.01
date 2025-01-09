@@ -1,16 +1,16 @@
 <?php
 
 $pageurls = [
-    "loginChoice" => "/pages/login/loginChoice.php",
-    "loginAdmin" => "/pages/login/loginAdmin.php",
-    "loginUser" => "/pages/login/loginUser.php",
-    "signupChoice" => "/pages/signup/signupChoice.php",
-    "signupAdmin" => "/pages/signup/signupAdmin.php",
-    "signupUser" => "/pages/signup/signupUser.php",
-    "annuaire" => "/pages/annuaire/annuaire.php",
-    "news" => "/pages/news/news.php",
-    "questionnaire" => "/pages/questionnaire/questionnaire.php",
-    "statistics" => "/pages/stats/statistics.php"
+    "loginChoice" => "login/loginChoice.php",
+    "loginAdmin" => "login/loginAdmin.php",
+    "loginUser" => "login/loginUser.php",
+    "signupChoice" => "signup/signupChoice.php",
+    "signupAdmin" => "signup/signupAdmin.php",
+    "signupUser" => "signup/signupUser.php",
+    "annuaire" => "annuaire/annuaire.php",
+    "news" => "news/news.php",
+    "questionnaire" => "questionnaire/questionnaire.php",
+    "statistics" => "stats/statistics.php"
 ];
 
 $authorizedurls = [

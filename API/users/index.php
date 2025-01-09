@@ -1,6 +1,7 @@
 <?php
 
 include(__DIR__."/services.php");
+session_start();
 
 main();
 
@@ -9,37 +10,29 @@ function main(){
     $response["state"] = "error";
     $response["result"] = "404 not found";
 
-
+    //get users
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        //$username = $_POST["username"];
-        // try {
-        //     require_once "../DBConnect/DBConnect.php";
-        // } catch (PDOException $e) {
-        //     die("Query failed : ".$e->getMessage());
-        // }
-    
-        // $query = "INSERT INTO users (username, pwd, email) VALUES (?,?,?);";
-        // $stmt = $pdo->prepare($query);
-        // $stmt->execute([$username, $password, $email]);
-    
-        // $pdo = null;
-        // $stmt = null;
-        // header("Location : ../index.php");
-    
-        // die();
         if (isset($_GET["userId"])) {
             $response = request_getUser($_GET["userId"]);
         } else {
             $response = request_getUsers();
         }
-            
+    // create users       
     } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response = request_createUser();
+        if ($response["state"] == "error") { 
+            $_SESSION["userCreated"] = false;  
+        } else if ($response["state"] == "success") {
+            $_SESSION["userCreated"] = true;  
+            $_SESSION["userid"] = $response["result"]["userid"];
+            $_SESSION["grade"] = $response["result"]["grade"];
+        }
+    //update users
     }elseif ($_SERVER["REQUEST_METHOD"] == "PATCH") {
         $response = request_updateUser();
-    } else {
-        header("Location : ../index.php");
     }
+
+    header("Location: ./../../index.php");
 }
 
 //////////// CHECK PARAMETERS //////////////////
@@ -59,26 +52,37 @@ function request_createUser(){
     $response["state"] = "error";
     $response["result"] = "";
 
-    if (isset($_POST["username"])) {
-        if (isset($_POST["password"])) {
-            if (isset($_POST["grade"])) {
-                if (isset($_POST["password"])) {
-                    if (isset($_POST["adminkey"])) {
-                        $response = create_user();
+    if (isset($_POST["name"])) {
+        if (isset($_POST["surname"])) {
+            if (isset($_POST["email"])) {
+                if (isset($_POST["grade"])) {
+                    if (isset($_POST["password"])) {
+                        if (isset($_POST["admin_key"]) || $_POST["grade"] == "user") {
+                            if($_POST["admin_key"] == "admin") {
+                                $param = $_POST;
+                                $response = create_user($param);
+                            }else $response["result"] = "adminkey is incorrect";
+                            if($_POST["grade"] == "user") {
+                                $param = $_POST;
+                                $response = create_user($param);
+                            }
+                        } else {
+                            $response["result"] = "adminkey param must be set";
+                        }
                     } else {
-                        $response["result"] = "adminkey param must be set";
+                        $response["result"] = "password param must be set";
                     }
                 } else {
-                    $response["result"] = "password param must be set";
+                    $response["result"] = "grade param must be set";
                 }
             } else {
-                $response["result"] = "grade param must be set";
+                $response["result"] = "email param must be set";
             }
-        } else {
-            $response["result"] = "adminkey param must be set";
+        }else {
+            $response["result"] = "surname param must be set";
         }
     } else {
-        $response["result"] = "adminkey param must be set";
+        $response["result"] = "name param must be set";
     }
 
     return $response;

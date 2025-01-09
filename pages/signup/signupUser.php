@@ -11,20 +11,21 @@
 </head>
 <body>
     <div class="login-container">
-        <button class="yellow-btn return-btn still-btn"><a href="./../../index.php">< return</a></button>
+        <a href="./signupChoice.php"><button class="yellow-btn return-btn still-btn">< return</button></a>
         <div class="popup">
             <p class="popup-header form-header">Sign up :</p>
             <img src="./../../images/logo.png" alt="users" width="40%">
             <div class="form">
-                <form action="signup.js" method="post">
-                    <label for="name">name</label>
+                <form action="./../../API/users/index.php" method="post">
+                    <label for="name">name :</label>
                     <input type="text" name="name">
-                    <label for="surname">surname</label>
+                    <label for="surname">surname :</label>
                     <input type="text" name="surname">
-                    <label for="password">password</label>
+                    <label for="email">email :</label>
+                    <input type="email" name="email">
+                    <label for="password">password :</label>
                     <input type="password" name="password">
-                    <label for="password_confirmation">password confirmation</label>
-                    <input type="password" name="password_confirmation">
+                    <input type="hidden" name="grade" id="gradeInput" value="user">
                     <button class="yellow-btn still-btn" type="submit">signup</button>
                     <a href="./../login/loginChoice.php">> J'ai un compte <</a>
                 </form>

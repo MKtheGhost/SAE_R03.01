@@ -11,17 +11,17 @@
 </head>
 <body>
     <div class="login-container">
-        <button class="yellow-btn return-btn"><a href="./../../index.php">< return</a></button>
+        <a href="./../../index.php"><button class="yellow-btn return-btn">< return</button></a>
         <div class="popup">
             <p class="popup-header">Vous êtes :</p>
                 <div class="signup-choice">
                     <img src="./../../images/team.png" alt="users" width="100%">
                     <br><br>
-                    <button class="green-btn user-btn"><a href="./signupUser.php">user</a></button>
+                    <a href="./signupUser.php"><button class="green-btn user-btn">user</button></a>
                 </div>
                 <div class="signup-choice">
                     <img src="./../../images/administrator.png" alt="administrator" width="100%">
-                    <button class="yellow-btn"><a href="./signupAdmin.php">admin</a></button>                
+                    <a href="./signupAdmin.php"><button class="yellow-btn">admin</button></a>               
                 </div>
         </div>
     </div>

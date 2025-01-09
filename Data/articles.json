@@ -1,0 +1,26 @@
+{
+    "articles" : [
+        {
+            "title" : "title1",
+            "content" : "content1",
+            "photo" : "/images/articlesImages/article1.png",
+            "creationDate" : "13/08/2024",
+            "resume" : "blablabla"
+        },
+        {
+            "title" : "title2",
+            "content" : "content2",
+            "photo" : "/images/articlesImages/article2.png",
+            "creationDate" : "14/08/2024",
+            "resume" : "blablabla"
+        },
+        {
+            "title" : "title2",
+            "content" : "content2",
+            "photo" : "/images/articlesImages/article3.png",
+            "creationDate" : "15/08/2024",
+            "resume" : "blablabla"
+        }
+
+    ]
+}

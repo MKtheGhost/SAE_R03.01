@@ -12,12 +12,12 @@
 <body>
     <div class="login-container">
         <!--------need to make it return to the page the user was on previously-------->
-        <a href="./../../index.php"><button class="yellow-btn return-btn">return</button></a>
+        <a href="./loginChoice.php"><button class="yellow-btn return-btn">< return</button></a>
         <div class="popup">
             <p class="popup-header form-header">Log in :</p>
             <img src="./../../images/logo.png" alt="users" width="40%">
             <div class="form">
-                <form action="login.js" method="post">
+                <form action="./../../API/users/index.php" method="post">
                         <label for="email">email</label>
                         <input type="text" name="email">
                         <label for="password">password</label>
