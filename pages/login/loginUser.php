@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="./../../style.css" rel="stylesheet"  type="text/css">
+    <script src="login.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -17,11 +18,11 @@
             <p class="popup-header form-header">Log in :</p>
             <img src="./../../images/logo.png" alt="users" width="40%">
             <div class="form">
-                <form action="./../../API/users/index.php" method="post">
+                <form action="./checkLogin.php" method="post" onsubmit="checkLogin()">
                     <label for="email">email</label>
-                    <input type="email" name="email">
+                    <input class="login_email" type="email" name="email">
                     <label for="password">password</label>
-                    <input type="password" name="password">
+                    <input class="login_password" type="password" name="password">
                     <button class="yellow-btn still-btn" type="submit">Login</button>
                     <a href="./../signup/signupChoice.php">> Je n'ai pas de compte <</a>
                 </form>

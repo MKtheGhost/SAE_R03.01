@@ -17,6 +17,7 @@ function main(){
         } else {
             $response = request_getUsers();
         }
+        
     // create users       
     } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response = request_createUser();
@@ -27,12 +28,14 @@ function main(){
             $_SESSION["userid"] = $response["result"]["userid"];
             $_SESSION["grade"] = $response["result"]["grade"];
         }
+        header("Location: ./../../index.php");
+        
     //update users
     }elseif ($_SERVER["REQUEST_METHOD"] == "PATCH") {
         $response = request_updateUser();
     }
 
-    header("Location: ./../../index.php");
+    echo json_encode($response);
 }
 
 //////////// CHECK PARAMETERS //////////////////
@@ -45,8 +48,19 @@ function request_getUser($userId) {
 
 function request_getUsers() {
     // no check just get all the users
+    $response = [];
+    $filters_checked = false;
+    $filters_checkedvalue = [];
 
+    $filters_checked = true;
+    
+    if ($filters_checked === true) {
+        //launch the stats query and get results : 
+        $response = getUsers($filters_checkedvalue);
+    }
+    return $response;
 }
+
 
 function request_createUser(){
     $response["state"] = "error";

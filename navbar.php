@@ -23,14 +23,14 @@ $pieces = explode("\\", $path);
 $directoryName = $pieces[count($pieces) - 1];
 
 //set the navigation path according to the current directory ( 2 cases only here)
-if ($directoryName == "SAE_R03.01") {
+if (!isset($_SESSION["previousPage"])) {
   $navigationPath = "./pages/";
   $adminpath = "./admin/";
   $rootdirectoryPath = "./";
-} elseif ($directoryName == "pages") {
+} else{
   $navigationPath = "./";
   $adminpath = "./../../admin/";
-  $rootdirectoryPath = "./../../"
+  $rootdirectoryPath = "./../../";
 }
 
 //define the url for each pages 
@@ -44,7 +44,7 @@ echo <<< HTML
 
       <div id="navbar">
         <ul>
-          <a href="./index.php"><img id="logo-elipse" src="./images/logoElipse.png" alt="logo"></a>
+          <a href="{$rootdirectoryPath}index.php"><img id="logo-elipse" src="{$rootdirectoryPath}images/logoElipse.png" alt="logo"></a>
           <div id="guest-menu">
 HTML;
 
@@ -193,3 +193,5 @@ echo <<< HTML
       </style>
 
 HTML;
+
+unset($_SESSION["previousPage"]);

@@ -17,13 +17,13 @@
             <p class="popup-header form-header">Log in :</p>
             <img src="./../../images/logo.png" alt="users" width="40%">
             <div class="form">
-                <form action="./../../API/users/index.php" method="post">
+                <form action="./checkLogin.php" method="post" onsubmit="checkLogin()">
                         <label for="email">email</label>
-                        <input type="text" name="email">
+                        <input class="login_email" type="text" name="email">
                         <label for="password">password</label>
-                        <input type="password" name="password">
+                        <input class="login_password" type="password" name="password">
                         <label for="admin_key">admin key</label>
-                        <input type="text" name="admin_key">
+                        <input class="login_adminkey" type="text" name="admin_key">
                         <button class="yellow-btn still-btn" type="submit">login</button>
                         <a href="./../signup/signupChoice.php">> Je n'ai pas de compte <</a>
                     </form>

@@ -1,3 +1,3 @@
 <?php
-    $conn->close();
+    $conn = null;
 ?>
